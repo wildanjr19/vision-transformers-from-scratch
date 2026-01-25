@@ -10,7 +10,7 @@ import torch.nn as nn
 from config.CONFIG import IMAGE_SIZE, PATCH_SIZE, NUM_CHANNELS, EMBED_DIM
 
 
-class PatchEmbedding:
+class PatchEmbedding(nn.Module):
     """
     Args:
         - in_channels: channels gambar input
@@ -18,7 +18,7 @@ class PatchEmbedding:
         - patch_size: ukuran patch (tinggi dan lebar) -> dihitung relative sesuai input
         - img_size: ukuran gambar input
     """
-    def __init__(self, in_channels: int = NUM_CHANNELS, embed_dim: int = EMBED_DIM, patch_size: int = PATCH_SIZE, img_size: int = IMAGE_SIZE):
+    def __init__(self, img_size: int = IMAGE_SIZE, in_channels: int = NUM_CHANNELS, embed_dim: int = EMBED_DIM, patch_size: int = PATCH_SIZE):
         super().__init__()
         self.img_size = img_size
         self.patch_size = patch_size
