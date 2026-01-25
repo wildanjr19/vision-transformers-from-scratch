@@ -37,3 +37,11 @@ class VITClassifier(nn.Module):
 
     def forward(self, x):
         return self.head(x)
+    
+    # init weights
+    def init_weights(self):
+        for m in self.head.modules():
+            if isinstance(m , nn.Linear):
+                nn.init.trunc_normal_(m.weight, std=0.02)
+                if m.bias is not None:
+                    nn.init.zeros_(m.bias)
