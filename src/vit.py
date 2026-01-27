@@ -8,6 +8,11 @@ Gabungkan semua layers untuk menjadi ViT.
 
 import torch
 import torch.nn as nn
+import sys
+import os
+
+# Add project root to path
+sys.path.append(os.path.join(os.path.dirname(__file__), '..', '..'))
 
 from config.CONFIG import EMBED_DIM, IMAGE_SIZE, PATCH_SIZE, NUM_CLASSES, NUM_CHANNELS, DEPTH, ATTENTION_HEADS, HIDDEN_DIM
 from src.layers.patch_embedding import PatchEmbedding
